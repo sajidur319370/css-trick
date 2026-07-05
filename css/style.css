@@ -1,0 +1,142 @@
+body,
+main::before {
+  background: url("/images/football.jpg") 0 / cover fixed;
+}
+
+main {
+  position: relative;
+  background: hsla(0, 0%, 100%, 0.3);
+  overflow: hidden;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: blur(20px);
+  margin: -30px;
+}
+/* ===============Tab========================= */
+.tab {
+  margin: 20px;
+  padding: 1em 2em;
+  transform: scaleY(1.5) perspective(0.5em) rotateX(5deg);
+  transform-origin: bottom;
+}
+/* ===============Pie========================= */
+.pie {
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: yellowgreen;
+  background-image: linear-gradient(to right, transparent 50%, #655 0);
+}
+.pie::before {
+  content: "";
+  display: block;
+  margin-left: 50%;
+  height: 100%;
+  border-radius: 0 100% 100% 0 / 50%;
+  background-color: inherit;
+  transform-origin: left;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(0.3turn);
+  }
+}
+
+circle {
+  height: 200px;
+  width: 200px;
+  fill: yellowgreen;
+  stroke: #655;
+  stroke-width: 50;
+  stroke-dasharray: 60 158;
+}
+
+/* ===============Envelope===================== */
+.envelop {
+  margin: 20px;
+  width: 300px;
+  height: 200px;
+  position: relative;
+  background: #58a;
+  background: linear-gradient(-150deg, transparent 1.5em, #58a 0);
+  border-radius: 0.5em;
+}
+.envelop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background: linear-gradient(
+      to left bottom,
+      transparent 50%,
+      rgba(0, 0, 0, 0.2) 0,
+      rgba(0, 0, 0, 0.4)
+    )
+    100% 0 no-repeat;
+
+  width: 1.73em;
+  height: 3em;
+
+  transform: translateY(-1.3em) rotate(-30deg);
+  transform-origin: bottom right;
+
+  border-bottom-left-radius: inherit;
+  box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+}
+
+/* ===============Box========================= */
+.box {
+  margin: 20px;
+  width: 300px;
+  height: 200px;
+  padding: 1em;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(skyblue, springgreen) padding-box,
+    repeating-linear-gradient(
+        -45deg,
+        black 0,
+
+        black 25%,
+
+        white 0,
+
+        white 50%
+      )
+      0 /0.6em 0.6em;
+
+  animation: ants 12s linear infinite;
+}
+@keyframes ants {
+  to {
+    background-position: 100%;
+  }
+}
+
+/* ===============Tinted Image================= */
+.tinted-image {
+  margin: 20px;
+  width: 640px;
+  height: 440px;
+  background-image: url("/images/boy.jpg");
+  background-size: cover;
+  background-color: hsl(73, 43%, 31%);
+  background-blend-mode: luminosity;
+
+  transition: 0.5s background-color;
+}
+
+.tinted-image:hover {
+  background-color: transparent;
+}
